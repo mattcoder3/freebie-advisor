@@ -7,11 +7,6 @@
   "version": "0.1",
   "description": "Alert for new free video games on the market",
   "permissions": ["activeTab", "scripting"],
-  "icons": {
-      "16": "images/icon16.png",
-      "48": "images/icon48.png",
-      "128": "images/icon128.png"
-  },
   "content_scripts": [{
     "matches": ["<all_urls>"],
     "js": ["auxiliary.js"]
