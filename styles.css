@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+
+:root {
+    --background-color: #1e1e1e;
+    --background-game: #4e4e4e;
+    --font: #e1e1e1;
+    --detail: #e30837;
+    --discount: #4abb63;
+}
+
+* {
+    color: var(--font);
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    width: 600px;
+    height: auto;
+    max-height: 1500px;
+    overflow: scroll;
+    background-color: var(--background-color);
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1em;
+}
+
+.separator {
+    height: .25em;
+    background-color: var(--detail);
+    width: 90%;
+}
+
+.title {
+    font-size: 2em;
+}
+
+.games {
+    border-radius: .5em;
+    width: 100%;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 2px solid var(--font);
+}
+
+.game {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 10em;
+    width: 90%;
+    overflow: hidden;
+}
+
+.game-divider {
+    width: 95%;
+    height: 2px;
+    background-color: var(--detail);
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.game__image-container {
+    height: 100%;
+    width: 40%;
+}
+
+.game__image {
+    height: 100%;
+    width: auto;
+    object-position: center center;
+    object-fit: cover;
+}
+
+.game__info {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.game__info-title {
+    font-size: 1.5em;
+    overflow: hidden;
+    height: 30%;
+    width: 100%;
+    vertical-align: middle;
+    text-align: left;
+    text-wrap: nowrap;
+}
+
+.game__info-details {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+}
+
+.game__prices {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.game__info-icon {
+    width: 3em;
+    height: auto;
+    fill: var(--font);
+}
+
+.game__info-price {
+    font-size: 2em;
+}
+
+.game__info-price_discount {
+    color: var(--discount);
+}
+
+.game__info-price_original {
+    font-size: 1em;
+    text-decoration: line-through;
+}
+
+.games__no-games {
+    font-size: 1.5em;
+}
+
+.game-divider:last-of-type {
+    display: none;
+}
