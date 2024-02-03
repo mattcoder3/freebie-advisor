@@ -6,5 +6,10 @@
   "manifest_version": 3,
   "version": "0.1",
   "description": "Alert for new free video games on the market",
-  "permissions": ["activeTab", "scripting"]
+  "permissions": ["activeTab", "scripting"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "host_permissions": ["https://store-site-backend-static.ak.epicgames.com/freeGamesPromotions"]
 }
