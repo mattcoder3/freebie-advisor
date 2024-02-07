@@ -34,12 +34,13 @@ function updateHTML(games){
 }
 
 function main(){
+    chrome.runtime.sendMessage({name: 'resetIcon'});
     chrome.runtime.sendMessage({name: 'fetchGames'}, (response) => {
         // Filter games
         const games = response.data.data.Catalog.searchStore.elements;
         const availableGames = filterGames(games);
         // Update HTML
-        updateHTML(games);
+        updateHTML(availableGames);
     })
 }
 

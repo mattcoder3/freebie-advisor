@@ -15,6 +15,10 @@ chrome.runtime.onMessage.addListener((msg,sender,response) => {
         });
     }
 
+    if(msg.name === 'resetIcon'){
+        chrome.action.setIcon({ path: "icon128.png" });
+    }
+
     return true
 });
 
@@ -28,8 +32,8 @@ function checkTimeDifference(data){
         oldDate = date;
     }
     const diff = Date.parse(date) - Date.parse(oldDate);
-    const timeDiff = diff/1000/60;
-    const res = timeDiff > 0.1;
+    const timeDiff = diff/1000/60/60;
+    const res = timeDiff > 1;
     if(res) {
         chrome.storage.local.set({ lastCheckTime: date });
     }
@@ -82,7 +86,7 @@ chrome.tabs.onCreated.addListener((tab) => {
                     const newGameData = data.data.Catalog.searchStore.elements;
                     const areNewGames = updateLocalStorage(newGameData, storageData.games);
                     if(areNewGames){
-                        chrome.action.setIcon({ path: "icon128.png" });
+                        chrome.action.setIcon({ path: "icon_alert128.png" });
                     }
                 });
             });

@@ -1,10 +1,13 @@
 {
-  "name": "Free VideoGames",
+  "name": "Freebie Advisor",
   "action": {
     "default_popup": "popup.html"
   },
+  "icons": {
+      "128": "icon128.png"
+  },
   "manifest_version": 3,
-  "version": "0.1",
+  "version": "1.0",
   "description": "Alert for new free video games on the market",
   "permissions": ["tabs","activeTab", "scripting","storage"],
   "background": {
