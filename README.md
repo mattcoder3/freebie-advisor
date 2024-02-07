@@ -19,7 +19,7 @@ Follow these simple steps to install the extension on your Chrome browser:
 8. The extension should now be installed and ready to use!
 
 ## Usage
-Once installed, the extension will monitor the supported stores for new game releases. When a new game is found, the app icon will change from ![icon128.png](icon128.png) to ![icon_alert128.png](icon_alert128.png), indicating that there are new games available. Click on the extension icon to view the list of newly released games and stay updated with the latest releases in the gaming world!
+Once installed, the extension will monitor the supported stores for new game releases. When a new game is found, the app icon will change from ![icon128.png](icon128.png =64x64) to ![icon_alert128.png](icon_alert128.png =64x64), indicating that there are new games available. Click on the extension icon to view the list of newly released games and stay updated with the latest releases in the gaming world!
 
 ## Feedback
 If you encounter any issues or have suggestions for improvements, feel free to [contact us](mailto:mattcoder.contact@gmail.com). Your feedback is highly appreciated!
@@ -47,7 +47,7 @@ Sigue estos sencillos pasos para instalar la extensión en tu navegador Chrome:
 8. ¡La extensión ahora debería estar instalada y lista para usar!
 
 ## Uso
-Una vez instalada, la extensión monitoreará las tiendas compatibles en busca de nuevos lanzamientos de juegos. Cuando se encuentre un nuevo juego, el ícono de la aplicación cambiará de ![icon128.png](path/to/icon128.png) a ![icon_alert128.png](path/to/icon_alert128.png), indicando que hay nuevos juegos disponibles. ¡Haz clic en el ícono de la extensión para ver la lista de juegos recién lanzados y mantente actualizado con los últimos lanzamientos en el mundo de los videojuegos!
+Una vez instalada, la extensión monitoreará las tiendas compatibles en busca de nuevos lanzamientos de juegos. Cuando se encuentre un nuevo juego, el ícono de la aplicación cambiará de ![icon128.png](icon128.png =64x64) a ![icon_alert128.png](icon_alert128.png =64x64), indicando que hay nuevos juegos disponibles. ¡Haz clic en el ícono de la extensión para ver la lista de juegos recién lanzados y mantente actualizado con los últimos lanzamientos en el mundo de los videojuegos!
 
 ## Comentarios
 Si encuentras algún problema o tienes sugerencias para mejoras, no dudes en [contactarnos](mailto:mattcoder.contact@gmail.com). ¡Tu opinión es muy apreciada!
