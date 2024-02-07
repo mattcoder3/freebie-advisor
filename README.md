@@ -19,7 +19,7 @@ Follow these simple steps to install the extension on your Chrome browser:
 8. The extension should now be installed and ready to use!
 
 ## Usage
-Once installed, the extension will monitor the supported stores for new game releases. When a new game is found, the app icon will change from ![icon128.png](path/to/icon128.png) to ![icon_alert128.png](path/to/icon_alert128.png), indicating that there are new games available. Click on the extension icon to view the list of newly released games and stay updated with the latest releases in the gaming world!
+Once installed, the extension will monitor the supported stores for new game releases. When a new game is found, the app icon will change from ![icon128.png](icon128.png) to ![icon_alert128.png](icon_alert128.png), indicating that there are new games available. Click on the extension icon to view the list of newly released games and stay updated with the latest releases in the gaming world!
 
 ## Feedback
 If you encounter any issues or have suggestions for improvements, feel free to [contact us](mailto:mattcoder.contact@gmail.com). Your feedback is highly appreciated!
