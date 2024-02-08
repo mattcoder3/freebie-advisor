@@ -59,12 +59,12 @@ function updateLocalStorage(newGameData, storageGameData){
     newGameData = filterGames(newGameData);
     let res = false;
     // Check for elements in newGameData that are not in storageGameData and add them to storageGameData
-    newGameData.forEach(item => {
+    for(item in newGameData){
         if (!storageGameData.some(elem => elem.title === item.title)) {
             storageGameData.push(item);
             res = true;
         }
-    });
+    }
     // Check for elements in storageGameData that are not in newGameData and remove them from storageGameData
     storageGameData.forEach((item, index) => {
         if (!newGameData.some(elem => elem.title === item.title)) {
