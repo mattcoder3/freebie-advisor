@@ -66,7 +66,8 @@ function updateLocalStorage(newGameData, storageGameData){
         }
     }
     // Check for elements in storageGameData that are not in newGameData and remove them from storageGameData
-    storageGameData.forEach((item, index) => {
+    for(let index = 0; index < storageGameData.size(); index++){
+        let item = storageGameData[index];
         if (!newGameData.some(elem => elem.title === item.title)) {
             storageGameData.splice(index, 1);
         }
