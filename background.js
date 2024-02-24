@@ -25,7 +25,7 @@ chrome.runtime.onMessage.addListener((msg,sender,response) => {
 function checkTimeDifference(data){
     // Check date
     const date = new Date().toString();
-    const oldDate = data.lastCheckTime;
+    let oldDate = data.lastCheckTime;
     if (!oldDate) {
         // If currentTime doesn't exist in storage, save it
         chrome.storage.local.set({ lastCheckTime: date });
