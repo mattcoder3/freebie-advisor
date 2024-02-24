@@ -59,19 +59,18 @@ function updateLocalStorage(newGameData, storageGameData){
     newGameData = filterGames(newGameData);
     let res = false;
     // Check for elements in newGameData that are not in storageGameData and add them to storageGameData
-    for(item in newGameData){
-        if (!storageGameData.some(elem => elem.title === item.title)) {
+    newGameData.forEach((item) => {
+        if (!(storageGameData.some(elem => elem.title === item.title))) {
             storageGameData.push(item);
             res = true;
         }
-    }
+    });
     // Check for elements in storageGameData that are not in newGameData and remove them from storageGameData
-    for(let index = 0; index < storageGameData.size(); index++){
-        let item = storageGameData[index];
+    storageGameData.forEach((item, index) => {
         if (!newGameData.some(elem => elem.title === item.title)) {
             storageGameData.splice(index, 1);
         }
-    } 
+    })
     if(res) chrome.storage.local.set({ games: storageGameData });
     return res;
 }
