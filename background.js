@@ -71,7 +71,7 @@ function updateLocalStorage(newGameData, storageGameData){
         if (!newGameData.some(elem => elem.title === item.title)) {
             storageGameData.splice(index, 1);
         }
-    }); 
+    } 
     if(res) chrome.storage.local.set({ games: storageGameData });
     return res;
 }
