@@ -72,24 +72,12 @@ function checkAndUpdateGames() {
     });
 }
 
-// Calculate the time remaining until 16:05 UTC (Approximate time when the games usually come out)
-const now = new Date();
-const utc16 = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 16, 5, 0);
-let timeUntil16UTC = utc16 - now;
-if (timeUntil16UTC < 0) {
-    timeUntil16UTC += 24 * 60 * 60 * 1000; // Add a day if the time has already passed
-}
-
-chrome.alarms.create('verificationAlarm', {
+chrome.alarms.create('checkGamesAlarm', {
     periodInMinutes: 120 // Repeat every 2 hours
 });
 
-chrome.alarms.create('verificationAlarm', {
-     when: Date.now() + timeUntil16UTC,
-});
-
 chrome.alarms.onAlarm.addListener((alarm) => {
-    if (alarm.name === 'verificationAlarm') {
+    if (alarm.name === 'checkGamesAlarm') {
 	console.log('Checking new games...');
         checkAndUpdateGames(); // Perform the verification
     }
