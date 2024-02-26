@@ -80,8 +80,17 @@ if (timeUntil16UTC < 0) {
     timeUntil16UTC += 24 * 60 * 60 * 1000; // Add a day if the time has already passed
 }
 
-// Schedule the verification every 2 hours and at 16:00 UTC
-setTimeout(() => {
-    checkAndUpdateGames(); // Perform the first verification
-    setInterval(checkAndUpdateGames, 2 * 60 * 60 * 1000); // Schedule subsequent verifications every 2 hours
-}, timeUntil16UTC);
+chrome.alarms.create('verificationAlarm', {
+    periodInMinutes: 120 // Repeat every 2 hours
+});
+
+chrome.alarms.create('verificationAlarm', {
+     when: Date.now() + timeUntil16UTC,
+});
+
+chrome.alarms.onAlarm.addListener((alarm) => {
+    if (alarm.name === 'verificationAlarm') {
+	console.log('Checking new games...');
+        checkAndUpdateGames(); // Perform the verification
+    }
+});
