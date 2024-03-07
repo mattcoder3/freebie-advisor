@@ -7,9 +7,9 @@
       "128": "icon128.png"
   },
   "manifest_version": 3,
-  "version": "1.0",
+  "version": "1.1",
   "description": "Alert for new free video games on the market",
-  "permissions": ["tabs","activeTab", "scripting","storage"],
+  "permissions": ["tabs","activeTab", "scripting","storage", "alarms"],
   "background": {
     "service_worker": "background.js",
     "type": "module"
