@@ -73,12 +73,12 @@ function checkAndUpdateGames() {
 }
 
 chrome.alarms.create('checkGamesAlarm', {
-    periodInMinutes: 120 // Repeat every 2 hours
+    periodInMinutes: 60 // Repeat every hour
 });
 
 chrome.alarms.onAlarm.addListener((alarm) => {
     if (alarm.name === 'checkGamesAlarm') {
-	console.log('Checking new games...');
+	    console.log('Checking for new games...');
         checkAndUpdateGames(); // Perform the verification
     }
 });
