@@ -39,7 +39,6 @@ function updateLocalStorage(newGameData, storageGameData) {
 // Function to perform game verification and update
 async function checkAndUpdateGames() {
 	const games = await getAllGames();
-	console.log(games);
 	chrome.storage.local.get('games', (storageData) => {
 		const areNewGames = updateLocalStorage(games, storageData.games);
 		if (areNewGames) {
@@ -49,7 +48,7 @@ async function checkAndUpdateGames() {
 }
 
 chrome.alarms.create('checkGamesAlarm', {
-	periodInMinutes: 60, // Repeat every hour
+	periodInMinutes: 10 / 60, // Repeat every hour
 });
 
 chrome.alarms.onAlarm.addListener((alarm) => {
