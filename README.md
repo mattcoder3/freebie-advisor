@@ -5,6 +5,7 @@ This Chrome extension alerts users when new video games are released in the mark
 
 ## Supported Stores
 - Epic Games
+- GOG
 
 ## Installation Guide
 Follow these simple steps to install the extension on your Chrome browser:
@@ -33,6 +34,7 @@ Esta extensión para Chrome alerta a los usuarios cuando se lanzan nuevos videoj
 
 ## Tiendas Compatibles
 - Epic Games
+- GOG
 
 ## Guía de Instalación
 Sigue estos sencillos pasos para instalar la extensión en tu navegador Chrome:
