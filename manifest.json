@@ -7,7 +7,7 @@
 		"128": "icon128.png"
 	},
 	"manifest_version": 3,
-	"version": "1.3",
+	"version": "1.4",
 	"description": "Alert for new free video games on the market",
 	"permissions": [
 		"tabs",
@@ -23,6 +23,7 @@
 	"host_permissions": [
 		"https://store-site-backend-static.ak.epicgames.com/freeGamesPromotions",
 		"https://catalog.gog.com/v1/catalog",
+		"https://www.humblebundle.com/store/api/search?sort=discount&filter=onsale&request=1",
 		"http://www.timeapi.org/utc/now"
 	]
 }

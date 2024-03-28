@@ -20,7 +20,6 @@
 .wrapper {
 	width: 600px;
 	height: auto;
-	max-height: 1500px;
 	overflow: scroll;
 	background-color: var(--background-color);
 	padding: 2em;

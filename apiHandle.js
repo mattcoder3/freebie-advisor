@@ -47,11 +47,36 @@ const filterGOGGames = (data) => {
 	return response;
 };
 
+// Humble Bundle
+async function getHumbleBundleGames() {
+	const url =
+		'https://www.humblebundle.com/store/api/search?sort=discount&filter=onsale&request=1';
+	const response = await fetch(url);
+	const data = await response.json();
+	return filterHumbleBundleGames(data);
+}
+
+const filterHumbleBundleGames = (data) => {
+	const games = data.results;
+	const filteredGames = games.filter(
+		(game) => game.current_price.amount == 0
+	);
+	const response = filteredGames.map((game) => ({
+		url: `https://www.humblebundle.com/store/${game.human_url}`,
+		imageUrl: game.featured_image_recommendation,
+		title: game.human_name,
+		originalPrice: game.full_price.amount,
+		discountPrice: game.current_price.amount,
+	}));
+	return response;
+};
+
 // Main function
 async function getAllGames() {
 	const epicgames = await getEpicGamesGames();
 	const GOG = await getGOGGames();
+	const humblebundle = await getHumbleBundleGames();
 
-	const result = [...epicgames, ...GOG];
+	const result = [...epicgames, ...GOG, ...humblebundle];
 	return result;
 }

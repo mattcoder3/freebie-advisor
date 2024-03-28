@@ -47,7 +47,7 @@ async function checkAndUpdateGames() {
 }
 
 chrome.alarms.create('checkGamesAlarm', {
-	periodInMinutes: 60, // Repeat every hour
+	periodInMinutes: 10 / 60, // Repeat every hour
 });
 
 chrome.alarms.onAlarm.addListener((alarm) => {
