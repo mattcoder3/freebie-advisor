@@ -36,12 +36,14 @@ function updateHTML(games) {
 	});
 }
 
-function main() {
+async function main() {
 	chrome.runtime.sendMessage({ name: 'resetIcon' });
-	chrome.runtime.sendMessage({ name: 'fetchGames' }, (response) => {
-		// Update HTML
-		updateHTML(response.games);
+	const response = await chrome.runtime.sendMessage({
+		name: 'fetchGames',
 	});
+	// Update HTML
+	console.log(response);
+	updateHTML(response.data);
 }
 
 main();

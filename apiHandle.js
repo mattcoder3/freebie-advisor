@@ -1,3 +1,4 @@
+// Epic Games Store
 async function getEpicGamesGames() {
 	const apiUrl =
 		'https://store-site-backend-static.ak.epicgames.com/freeGamesPromotions';
@@ -23,7 +24,34 @@ const filterEpicGamesGames = (data) => {
 	return response;
 };
 
+// GOG.com
+async function getGOGGames() {
+	const url = 'https://catalog.gog.com/v1/catalog';
+	const response = await fetch(url);
+	const data = await response.json();
+	return filterGOGGames(data);
+}
+
+const filterGOGGames = (data) => {
+	const games = data.products;
+	const filteredGames = games.filter(
+		(game) => game.price.finalMoney.amount == 0
+	);
+	const response = filteredGames.map((game) => ({
+		url: game.storeLink,
+		imageUrl: game.coverHorizontal,
+		title: game.title,
+		originalPrice: game.price.baseMoney.amount,
+		discountPrice: game.price.finalMoney.amount,
+	}));
+	return response;
+};
+
+// Main function
 async function getAllGames() {
 	const epicgames = await getEpicGamesGames();
-	return [...epicgames];
+	const GOG = await getGOGGames();
+
+	const result = [...epicgames, ...GOG];
+	return result;
 }

@@ -1,17 +1,16 @@
 importScripts(['apiHandle.js']);
 
-chrome.runtime.onMessage.addListener(
-	async (msg, sender, response) => {
-		if (msg.name === 'fetchGames') {
-			const games = await getAllGames();
-			response({ message: 'Fetch completed', games: games });
-		}
-		if (msg.name === 'resetIcon') {
-			chrome.action.setIcon({ path: 'icon128.png' });
-		}
-		return true;
+chrome.runtime.onMessage.addListener((msg, sender, response) => {
+	if (msg.name === 'fetchGames') {
+		getAllGames().then((games) => {
+			response({ message: 'Fetch completed', data: games });
+		});
 	}
-);
+	if (msg.name === 'resetIcon') {
+		chrome.action.setIcon({ path: 'icon128.png' });
+	}
+	return true;
+});
 
 function updateLocalStorage(newGameData, storageGameData) {
 	if (!storageGameData) {
@@ -48,7 +47,7 @@ async function checkAndUpdateGames() {
 }
 
 chrome.alarms.create('checkGamesAlarm', {
-	periodInMinutes: 10 / 60, // Repeat every hour
+	periodInMinutes: 60, // Repeat every hour
 });
 
 chrome.alarms.onAlarm.addListener((alarm) => {

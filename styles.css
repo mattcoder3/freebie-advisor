@@ -73,6 +73,10 @@
 .game__image-container {
 	height: 100%;
 	width: 40%;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .game__image {
