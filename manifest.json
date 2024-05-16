@@ -7,7 +7,7 @@
 		"128": "icon128.png"
 	},
 	"manifest_version": 3,
-	"version": "1.4",
+	"version": "1.4.1",
 	"description": "Alert for new free video games on the market",
 	"permissions": [
 		"tabs",
