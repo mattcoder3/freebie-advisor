@@ -15,13 +15,11 @@ async function getEpicGamesGames() {
 const filterEpicGamesGames = (data) => {
 	const games = data.data.Catalog.searchStore.elements;
 	const filteredGames = games.filter(
-		(game) => game.price.totalPrice.discountPrice == 0
+		(game) => (game.price.totalPrice.discountPrice == 0 && Date.parse(game.effectiveDate) < new Date())
 	);
 	const response = filteredGames.map((game) => ({
-		url: `https://store.epicgames.com/en-US/p/${game.catalogNs.mappings[0].pageSlug}`,
-		imageUrl: game.keyImages.find(
-			(image) => image.type === 'OfferImageWide'
-		).url,
+		url: `https://store.epicgames.com/en-US/p/${game.productSlug}`,
+		imageUrl: game.keyImages[0].url,
 		title: game.title,
 		originalPrice: game.price.totalPrice.originalPrice / 100,
 		discountPrice: game.price.totalPrice.discountPrice / 100,
