@@ -1,12 +1,12 @@
 {
 	"name": "Freebie Advisor",
-	"action": {
+	"browser_action": {
 		"default_popup": "popup.html"
 	},
 	"icons": {
 		"128": "icon128.png"
 	},
-	"manifest_version": 3,
+	"manifest_version": 2,
 	"version": "1.4.1",
 	"description": "Alert for new free video games on the market",
 	"permissions": [
@@ -14,16 +14,17 @@
 		"activeTab",
 		"scripting",
 		"storage",
-		"alarms"
-	],
-	"background": {
-		"service_worker": "service_worker.js",
-		"scripting": ["apiHandle.js"]
-	},
-	"host_permissions": [
+		"alarms",
 		"https://store-site-backend-static.ak.epicgames.com/freeGamesPromotions",
 		"https://catalog.gog.com/v1/catalog",
 		"https://www.humblebundle.com/store/api/search?sort=discount&filter=onsale&request=1",
 		"http://www.timeapi.org/utc/now"
-	]
+	],
+	"background": {
+  		"scripts": [
+    		"service_worker.js",
+    		"apiHandle.js"
+  		]
+	}
+
 }
