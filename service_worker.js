@@ -1,20 +1,20 @@
-importScripts(['apiHandle.js']);
+let apiHandlePromise = import('./apiHandle.js');
 
-chrome.runtime.onMessage.addListener((msg, sender, response) => {
+browser.runtime.onMessage.addListener((msg, sender, response) => {
 	if (msg.name === 'fetchGames') {
 		getAllGames().then((games) => {
 			response({ message: 'Fetch completed', data: games });
 		});
 	}
 	if (msg.name === 'resetIcon') {
-		chrome.action.setIcon({ path: 'icon128.png' });
+		browser.browserAction.setIcon({ path: 'icon128.png' });
 	}
 	return true;
 });
 
 function updateLocalStorage(newGameData, storageGameData) {
 	if (!storageGameData) {
-		chrome.storage.local.set({ games: newGameData });
+		browser.storage.local.set({ games: newGameData });
 		return true;
 	}
 	let res = false;
@@ -31,26 +31,26 @@ function updateLocalStorage(newGameData, storageGameData) {
 			storageGameData.splice(index, 1);
 		}
 	});
-	if (res) chrome.storage.local.set({ games: storageGameData });
+	if (res) browser.storage.local.set({ games: storageGameData });
 	return res;
 }
 
 // Function to perform game verification and update
 async function checkAndUpdateGames() {
 	const games = await getAllGames();
-	chrome.storage.local.get('games', (storageData) => {
+	browser.storage.local.get('games', (storageData) => {
 		const areNewGames = updateLocalStorage(games, storageData.games);
 		if (areNewGames) {
-			chrome.action.setIcon({ path: 'icon_alert128.png' });
+			browser.browserAction.setIcon({ path: 'icon_alert128.png' });
 		}
 	});
 }
 
-chrome.alarms.create('checkGamesAlarm', {
+browser.alarms.create('checkGamesAlarm', {
 	periodInMinutes: 60, // Repeat every hour
 });
 
-chrome.alarms.onAlarm.addListener((alarm) => {
+browser.alarms.onAlarm.addListener((alarm) => {
 	if (alarm.name === 'checkGamesAlarm') {
 		console.log('Checking for new games...');
 		checkAndUpdateGames(); // Perform the verification

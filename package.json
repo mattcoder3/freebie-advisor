@@ -1,6 +1,11 @@
 {
+	"name": "free-games-extension",
+	"description": "This Firefox extension alerts users when new video games are released in the market. Stay updated with the latest game releases without any hassle!",
+	"authors": "MattCoder",
+	"version": "1.4.1",
+	"dependencies": {},
 	"devDependencies": {
-		"eslint": "^8.57.0",
-		"prettier": "^3.0.0-alpha.6"
-	}
+			"eslint": "^8.57.0",
+			"prettier": "^3.2.5"
+		}
 }
