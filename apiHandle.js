@@ -46,7 +46,7 @@ async function getGOGGames() {
 const filterGOGGames = (data) => {
 	const games = data.products;
 	const filteredGames = games.filter(
-		(game) => game.price.finalMoney.amount == 0
+		(game) => game.price?.finalMoney.amount == 0
 	);
 	const response = filteredGames.map((game) => ({
 		url: game.storeLink,
